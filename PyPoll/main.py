@@ -2,7 +2,7 @@ import pandas as pd
 df =pd.read_csv("election_data.csv")
 Votes = (df["Voter ID"].count())
 
-#print(df["Candidate"].unique())
+Candidates = df["Candidate"].unique()
 
 K = 0
 C = 0
@@ -10,24 +10,24 @@ L = 0
 O = 0
 Can = list(df["Candidate"])
 for i in Can:
-	if i == "Khan":
+	if i == Candidates[0]:
 		K = K + 1
-	if i == "Correy":
+	if i == Candidates[1]:
 		C = C + 1
-	if i == "Li":
+	if i == Candidates[2]:
 		L = L + 1
-	if i == "O'Tooley":
+	if i == Candidates[3]:
 		O = O + 1
-Winner = "Khan"
+Winner = Candidates[0]
 WinNum = K
 if C > WinNum:
-	Winner = "Correy"
+	Winner = Candidates[1]
 	WinNum = C
 if L > WinNum:
-	Winner = "Li"
+	Winner = Candidates[2]
 	WinNum = L
 if O > WinNum:
-	Winner = "O'Tooley"
+	Winner = Candidates[3]
 	WinNum = O
 	
 print("Election Results")
